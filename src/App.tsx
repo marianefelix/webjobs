@@ -1,7 +1,13 @@
-import React from "react";
+import { ThemeProvider } from "styled-components";
 
-function App() {
-  return <div>Hello World</div>;
-}
+import { GlobalStyle } from "./styles/global";
+import { light } from "./styles/theme";
 
-export default App;
+export const App = () => {
+  return (
+    <ThemeProvider theme={light}>
+      <GlobalStyle />
+      <h1>WebJobs</h1>
+    </ThemeProvider>
+  );
+};
