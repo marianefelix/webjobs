@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
 
   input, button, body {
     font-family: ${({ theme }) => theme.font.family}, sans-serif;
+    letter-spacing: 1px;
   }
 
   body {
