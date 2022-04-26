@@ -1,6 +1,6 @@
-import "styled-components";
+import 'styled-components';
 
-declare module "styled-components" {
+declare module 'styled-components' {
   export interface DefaultTheme {
     title: string;
     color: {
@@ -10,27 +10,27 @@ declare module "styled-components" {
       lightCard: string;
       lightBackground: string;
       text: string;
-    },
-    boxShadow: string,
+    };
+    boxShadow: string;
     font: {
       size: {
         xSmall: string;
         small: string;
         medium: string;
         large: string;
-      },
-      family: string,
+      };
+      family: string;
       weight: {
         medium: number;
         bold: number;
-      },
-    },
+      };
+    };
     borderRadius: {
       tag: string;
       badge: string;
       card: string;
-      filterBox: string
+      filterBox: string;
       shareButton: string;
-    },
+    };
   }
 }
