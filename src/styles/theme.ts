@@ -16,17 +16,17 @@ export const light = {
       medium: '14px',
       large: '18px',
     },
-    family: 'Spartan',
+    family: 'League Spartan',
     weight: {
       medium: 500,
-      bold: 700
+      bold: 700,
     },
   },
-  borderRadius: { 
+  borderRadius: {
     tag: '4px',
     badge: '12px',
     card: '5px',
     filterBox: '5px',
     shareButton: '24px',
-  }
+  },
 };
