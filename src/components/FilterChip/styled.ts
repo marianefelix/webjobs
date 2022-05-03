@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { ReactComponent as Icon } from '../../assets/icons/icon-remove.svg';
 
 export const FilterChipContainer = styled.div`
-  border-radius: ${({ theme }) => theme.borderRadius.tag};
   display: flex;
 `;
 
@@ -29,6 +28,8 @@ export const Text = styled.span`
   font-size: ${({ theme }) => theme.font.size.small};
   font-weight: ${({ theme }) => theme.font.weight.bold};
   padding: 8px 10px;
+  border-radius: ${({ theme }) =>
+    `${theme.borderRadius.tag} 0px 0px ${theme.borderRadius.tag}`};
 `;
 
 export const CloseIcon = styled(Icon)`
