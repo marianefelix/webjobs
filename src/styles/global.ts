@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
 
   input, button, body {
     font-family: ${({ theme }) => theme.font.family}, sans-serif;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
   }
 
   body {
@@ -21,7 +21,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   :root {
-    font-size: 85%;
+    font-size: 100%;
   }
 
   button {

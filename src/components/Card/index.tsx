@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   CardContainer,
   JobTitle,
   CompanyImage,
   JobDescription,
   CompanyName,
-  Tags,
+  List,
+  Item,
+  Flex,
 } from './styled';
 import { Tag } from 'components/Tag';
-
+import { Badge } from 'components/Badge';
 interface JobType {
   id: number;
   company: string;
@@ -25,36 +27,73 @@ interface JobType {
   tools: string[];
 }
 
+interface TagType {
+  title: string;
+  selected: boolean;
+}
+
+interface TagListType {
+  [id: string]: TagType;
+}
+
+const imagePath = '/assets/images/';
+
 export const Card = ({ job }: { job: JobType }) => {
-  const [selected, setSelected] = useState(false);
+  const [tags, setTags] = useState<TagListType>({});
+
+  const generateTags = useCallback(() => {
+    const newTags = {} as TagListType;
+    const tagList = [job.role, job.level, ...job.languages, ...job.tools];
+
+    tagList.forEach((tag, idx) => {
+      const key = idx + 1;
+      newTags[key] = { title: tag, selected: false };
+    });
+
+    return newTags;
+  }, [job.role, job.level, job.languages, job.tools]);
+
+  const handleTagSelection = (idx: number) => {
+    const id = idx + 1;
+    const newTags = { ...tags };
+    newTags[id].selected = !newTags[id].selected;
+    setTags(newTags);
+  };
+
+  useEffect(() => {
+    setTags(generateTags());
+  }, [generateTags]);
 
   return (
     <CardContainer>
-      <JobDescription>
-        <CompanyImage src={`../../assets/images/${job.logo}`} />
-        <div>
-          <CompanyName>{job.company}</CompanyName>
+      <Flex gap="20px">
+        <CompanyImage src={`${imagePath}${job.logo}`} />
+        <JobDescription>
+          <Flex>
+            <CompanyName>{job.company}</CompanyName>
+            {job.new && <Badge type="new" />}
+            {job.featured && <Badge type="featured" />}
+          </Flex>
+
           <JobTitle>{job.position}</JobTitle>
-          <div>
-            <span>{job.postedAt}</span> . <span>{job.contract}</span> .{' '}
+          <Flex>
+            <span>{job.postedAt}</span> • <span>{job.contract}</span> •
             <span>{job.location}</span>
-          </div>
-        </div>
-      </JobDescription>
-      <Tags>
-        <Tag
-          selected={selected}
-          onClick={() => setSelected((prevState) => !prevState)}
-        >
-          Frontend
-        </Tag>
-        <Tag
-          selected={selected}
-          onClick={() => setSelected((prevState) => !prevState)}
-        >
-          Senior
-        </Tag>
-      </Tags>
+          </Flex>
+        </JobDescription>
+      </Flex>
+      <List>
+        {Object.values(tags).map((tag, idx) => (
+          <Item>
+            <Tag
+              selected={tag.selected}
+              onClick={() => handleTagSelection(idx)}
+            >
+              {tag.title}
+            </Tag>
+          </Item>
+        ))}
+      </List>
     </CardContainer>
   );
 };

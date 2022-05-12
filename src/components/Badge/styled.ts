@@ -11,6 +11,9 @@ export const BadgeContainer = styled.div<BadgeType>`
 
   padding: 6px 8px;
 
+  display: flex;
+  align-items: center;
+
   border-radius: ${({ theme }) => theme.borderRadius.badge};
 `;
 
