@@ -21,7 +21,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   :root {
-    font-size: 60%;
+    font-size: 85%;
   }
 
   button {
