@@ -64,7 +64,7 @@ export const Card = ({ job }: { job: JobType }) => {
 
   return (
     <CardContainer>
-      <Flex gap="20px">
+      <Flex gap="24px">
         <CompanyImage src={job.logo} />
         <JobDescription>
           <Flex>
@@ -82,7 +82,7 @@ export const Card = ({ job }: { job: JobType }) => {
       </Flex>
       <List>
         {Object.values(tags).map((tag, idx) => (
-          <Item>
+          <Item key={tag.title}>
             <Tag
               selected={tag.selected}
               onClick={() => handleTagSelection(idx)}

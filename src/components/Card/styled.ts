@@ -8,6 +8,7 @@ interface FlexProps {
 export const JobTitle = styled.h3`
   font-size: ${({ theme }) => theme.font.size.large};
   font-weight: ${({ theme }) => theme.font.weight.bold};
+  color: ${({ theme }) => theme.color.dark};
 
   transition: color 0.3s;
 
@@ -19,7 +20,7 @@ export const CardContainer = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius.card};
   box-shadow: ${({ theme }) => theme.boxShadow};
 
-  padding: 20px 40px;
+  padding: 20px 35px;
 
   width: 80%;
   min-height: 130px;
