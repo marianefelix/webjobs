@@ -16,9 +16,9 @@ export const light = {
       medium: '14px',
       large: '18px',
     },
-    family: 'League Spartan',
+    family: 'Source Sans Pro',
     weight: {
-      medium: 500,
+      medium: 400,
       bold: 700,
     },
   },
