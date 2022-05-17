@@ -6,7 +6,7 @@ import { light } from './styles/theme';
 const mockJob = {
   id: 1,
   company: 'Photosnap',
-  logo: 'photosnap.svg',
+  logo: 'https://user-images.githubusercontent.com/52718710/168858265-561b8022-86a6-4cc9-93a8-e5aedb28c021.svg',
   new: true,
   featured: true,
   position: 'Senior Frontend Developer',

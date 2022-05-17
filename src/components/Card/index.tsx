@@ -36,8 +36,6 @@ interface TagListType {
   [id: string]: TagType;
 }
 
-const imagePath = '/assets/images/';
-
 export const Card = ({ job }: { job: JobType }) => {
   const [tags, setTags] = useState<TagListType>({});
 
@@ -67,7 +65,7 @@ export const Card = ({ job }: { job: JobType }) => {
   return (
     <CardContainer>
       <Flex gap="20px">
-        <CompanyImage src={`${imagePath}${job.logo}`} />
+        <CompanyImage src={job.logo} />
         <JobDescription>
           <Flex>
             <CompanyName>{job.company}</CompanyName>
