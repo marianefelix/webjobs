@@ -8,6 +8,7 @@ import {
   List,
   Item,
   Flex,
+  Divider,
 } from './styled';
 import { Tag } from 'components/Tag';
 import { Badge } from 'components/Badge';
@@ -80,6 +81,7 @@ export const Card = ({ job }: { job: JobType }) => {
           </Flex>
         </JobDescription>
       </Flex>
+      <Divider />
       <List>
         {Object.values(tags).map((tag, idx) => (
           <Item key={tag.title}>

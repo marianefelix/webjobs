@@ -24,6 +24,7 @@ export const CardContainer = styled.div`
 
   width: 80%;
   min-height: 130px;
+  position: relative;
 
   display: flex;
   align-items: center;
@@ -39,9 +40,23 @@ export const CardContainer = styled.div`
   &:hover ${JobTitle} {
     color: ${({ theme }) => theme.color.primary};
   }
+
+  @media screen and (max-width: 992px) {
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 576px) {
+    padding: 30px 20px 20px;
+  }
 `;
 
-export const CompanyImage = styled.img``;
+export const CompanyImage = styled.img`
+  @media screen and (max-width: 576px) {
+    position: absolute;
+    width: 48px;
+    top: -24px;
+  }
+`;
 
 export const JobDescription = styled.div`
   display: flex;
@@ -71,4 +86,19 @@ export const Flex = styled.div<FlexProps>`
   align-items: center;
   gap: ${({ gap }) => (gap ? gap : '10px')};
   color: ${({ color, theme }) => (color ? color : theme.color.text)};
+
+  @media screen and (max-width: 992px) {
+    width: 100%;
+  }
+`;
+
+export const Divider = styled.hr`
+  @media screen and (min-width: 992px) {
+    display: none;
+  }
+  width: 100%;
+  margin: 16px;
+  border-width: 1px 0px 0px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.12);
 `;
