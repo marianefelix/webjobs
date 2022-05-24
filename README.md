@@ -1,46 +1,61 @@
-# Getting Started with Create React App
+<h1 align="center">WebJobs</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <a href="#sobre">Sobre</a> •
+  <a href="#tecnologias-utilizadas">Tecnologias utilizadas</a> • 
+  <a href="#como-rodar">Como rodar?</a> • 
+  <a href="#autoras">Autoras</a>
+</p>
 
-## Available Scripts
+## Sobre
 
-In the project directory, you can run:
+Projeto desenvolvido para a disciplina de Desenvolvimento Web I do BTI. Consiste em uma plataforma para cadastrar e listar vagas da área de desenvolvimento web chamada WebJobs, baseada [nesse desafio](https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt) do Frontend Mentor. O objetivo é facilitar a divulgação de vagas disponíveis em empresas de tecnologia para profissionais de desenvolvimento web.
 
-### `yarn start`
+![cover](.github/main-page.png?style=flat)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> Acesse os layouts das outras páginas do projeto no [Figma](https://www.figma.com/file/VOMO0clBvQHdvU7xeqg3EM/webjobs?node-id=111%3A135)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Features
 
-### `yarn test`
+- Listagem de vagas - Em construção 🚧
+- Cadastro e login de empresas - Em breve 📅
+- Cadastro de vaga - Em breve 📅
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tecnologias utilizadas
 
-### `yarn build`
+Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 💻 Web
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [ReactJS](https://reactjs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Styled Components](https://styled-components.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 📦 API
 
-### `yarn eject`
+- [NodeJS](https://nodejs.org/en/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Express](https://expressjs.com/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Como rodar?
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+> Certifique-se de ter [NodeJS](https://nodejs.org/en/) e [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable) instalados
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Execute os seguintes comandos no seu terminal:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+# Clone o repositório
+$ git clone https://github.com/lorenatoscano/webjobs.git
+# Entre no repositório
+$ cd webjobs
+# Instale as dependências
+$ yarn
+# Execute a aplicação
+$ yarn start
+```
 
-## Learn More
+Acesse em seu navegador http://localhost:3000/ para ver o resultado.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Autoras
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Feito por [Lorena Toscano](https://github.com/lorenatoscano) e [Mariane Felix](https://github.com/marianefelix).
