@@ -12,7 +12,7 @@ import {
 } from './styled';
 import { Tag } from 'components/Tag';
 import { Badge } from 'components/Badge';
-interface JobType {
+export interface JobType {
   id: number;
   company: string;
   logo: string;
@@ -64,9 +64,9 @@ export const Card = ({ job }: { job: JobType }) => {
   }, [generateTags]);
 
   return (
-    <CardContainer>
+    <CardContainer tabIndex={0}>
       <Flex gap="24px">
-        <CompanyImage src={job.logo} />
+        <CompanyImage src={job.logo} alt={job.company} />
         <JobDescription>
           <Flex>
             <CompanyName>{job.company}</CompanyName>

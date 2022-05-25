@@ -1,4 +1,6 @@
-<h1 align="center">WebJobs</h1>
+<p align="center">
+   <img src="./.github/logo-colors.svg" alt="WebJobs" width="250"/>
+</p>
 
 <p align="center">
   <a href="#sobre">Sobre</a> •

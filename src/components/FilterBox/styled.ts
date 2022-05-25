@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const Box = styled.div`
-  width: 80%;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,6 +12,10 @@ export const Box = styled.div`
   background-color: ${({ theme }) => theme.color.lightCard};
   box-shadow: ${({ theme }) => theme.boxShadow};
   border-radius: ${({ theme }) => theme.borderRadius.filterBox};
+
+  @media screen and (max-width: 576px) {
+    padding: 15px 20px;
+  }
 `;
 
 export const List = styled.ul`
@@ -27,7 +29,7 @@ export const List = styled.ul`
 export const Item = styled.li``;
 
 export const ClearButton = styled.button`
-  color: ${({ theme }) => theme.color.primary};
+  color: ${({ theme }) => theme.color.text};
   font-size: ${({ theme }) => theme.font.size.small};
   font-weight: ${({ theme }) => theme.font.weight.bold};
 
@@ -38,6 +40,7 @@ export const ClearButton = styled.button`
   transition: all 0.3s;
 
   &:hover {
+    color: ${({ theme }) => theme.color.primary};
     text-decoration-color: ${({ theme }) => theme.color.primary};
   }
 `;

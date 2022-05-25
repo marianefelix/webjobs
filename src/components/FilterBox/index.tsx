@@ -9,7 +9,10 @@ export const FilterBox = () => {
           <FilterChip>Frontend</FilterChip>
         </Item>
         <Item>
-          <FilterChip>Backend</FilterChip>
+          <FilterChip>Fullstack</FilterChip>
+        </Item>
+        <Item>
+          <FilterChip>Javascript</FilterChip>
         </Item>
       </List>
       <ClearButton type="reset" onClick={() => {}}>
