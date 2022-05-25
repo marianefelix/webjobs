@@ -12,6 +12,10 @@ export const Box = styled.div`
   background-color: ${({ theme }) => theme.color.lightCard};
   box-shadow: ${({ theme }) => theme.boxShadow};
   border-radius: ${({ theme }) => theme.borderRadius.filterBox};
+
+  @media screen and (max-width: 576px) {
+    padding: 15px 20px;
+  }
 `;
 
 export const List = styled.ul`

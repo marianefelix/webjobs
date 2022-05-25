@@ -33,11 +33,13 @@ export const CardContainer = styled.div`
   border-left: 5px solid transparent;
   transition: border-left 0.3s;
 
-  &:hover {
+  &:hover,
+  &:focus {
     border-left: 5px solid ${({ theme }) => theme.color.primary};
+    outline: none;
   }
 
-  &:hover ${JobTitle} {
+  &:hover ${JobTitle}, &:focus ${JobTitle} {
     color: ${({ theme }) => theme.color.primary};
   }
 
@@ -77,6 +79,10 @@ export const List = styled.ul`
   flex-wrap: wrap;
   gap: 15px;
   list-style-type: none;
+
+  @media screen and (max-width: 992px) {
+    width: 100%;
+  }
 `;
 
 export const Item = styled.li``;
