@@ -12,7 +12,7 @@ import {
 } from './styled';
 import { Tag } from 'components/Tag';
 import { Badge } from 'components/Badge';
-interface JobType {
+export interface JobType {
   id: number;
   company: string;
   logo: string;
