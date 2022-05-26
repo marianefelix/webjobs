@@ -15,7 +15,7 @@ Projeto desenvolvido para a disciplina de Desenvolvimento Web I do BTI. Consiste
 
 ![cover](.github/main-page.png?style=flat)
 
-> Acesse os layouts das outras páginas do projeto no [Figma](https://www.figma.com/file/VOMO0clBvQHdvU7xeqg3EM/webjobs?node-id=111%3A135)
+> Acesse os layouts das outras páginas do projeto no [Figma](https://www.figma.com/file/0WwDhP1JW5L6PA0ygLjGxl/webjobs---fluxo?node-id=0%3A1)
 
 ### Features
 
