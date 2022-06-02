@@ -1,9 +1,10 @@
+import { Home } from 'pages/Home';
 import { JobList } from 'pages/JobList';
 
 export const routes = [
   {
     path: '/',
-    element: <div>Home</div>,
+    element: <Home />,
   },
   {
     path: 'list',

@@ -10,6 +10,7 @@ export const light: DefaultTheme = {
     lightBackground: '#F5F5F5',
     lightGrey: 'rgba(217, 217, 217, 0.18)',
     text: '#7B8E8E',
+    darkText: '#687575',
   },
   boxShadow: '9px 9px 20px rgba(91, 164, 164, 0.2)',
   font: {
