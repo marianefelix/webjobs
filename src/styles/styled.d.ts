@@ -9,6 +9,7 @@ declare module 'styled-components' {
       dark: string;
       lightCard: string;
       lightBackground: string;
+      lightGrey: string;
       text: string;
     };
     boxShadow: string;
