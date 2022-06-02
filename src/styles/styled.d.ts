@@ -21,7 +21,9 @@ declare module 'styled-components' {
       };
       family: string;
       weight: {
+        regular: number;
         medium: number;
+        semiBold: number;
         bold: number;
       };
     };
