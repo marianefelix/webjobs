@@ -1,4 +1,6 @@
-export const light = {
+import { DefaultTheme } from 'styled-components';
+
+export const light: DefaultTheme = {
   title: 'light',
   color: {
     primary: '#5BA4A4',
@@ -6,6 +8,7 @@ export const light = {
     dark: '#2C3A3A',
     lightCard: '#FFFFFF',
     lightBackground: '#F5F5F5',
+    lightGrey: 'rgba(217, 217, 217, 0.18)',
     text: '#7B8E8E',
   },
   boxShadow: '9px 9px 20px rgba(91, 164, 164, 0.2)',
