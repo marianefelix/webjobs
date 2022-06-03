@@ -35,9 +35,9 @@ declare module 'styled-components' {
       filterBox: string;
       shareButton: string;
     };
-    breakpoints: {
-      sm: string;
-      lg: string;
+    device: {
+      mobile: string;
+      desktop: string;
     };
   }
 }
