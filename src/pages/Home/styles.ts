@@ -6,7 +6,7 @@ export const HomeContainer = styled.div`
 
   display: flex;
   flex-direction: column;
-  padding: 3.5rem 6rem 0 6rem;
+  padding: 3.5rem 5rem 0 5rem;
 
   background-color: ${({ theme }) => theme.color.lightBackground};
 `;
@@ -28,10 +28,17 @@ export const ButtonsContainer = styled.div`
 
 export const Main = styled.main`
   display: flex;
-  flex-direction: column;
-  gap: 5rem;
+  justify-content: space-between;
+  gap: 2rem;
+  flex: 1;
 
   margin-top: 3.5rem;
+`;
+
+export const DescriptionSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 `;
 
 export const Description = styled.h1`
@@ -62,5 +69,19 @@ export const BoxDescription = styled.p`
 
 export const Divider = styled.hr`
   border: 1px solid #e3d8d8;
+  background-color: #e3d8d8;
   height: 100%;
+`;
+
+export const ImageSection = styled.section`
+  display: flex;
+  justify-content: flex-end;
+
+  svg {
+    width: 95%;
+    height: 70%;
+
+    justify-self: end;
+    align-self: end;
+  }
 `;
