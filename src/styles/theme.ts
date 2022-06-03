@@ -35,4 +35,8 @@ export const light: DefaultTheme = {
     filterBox: '5px',
     shareButton: '24px',
   },
+  breakpoints: {
+    sm: '576px',
+    lg: '992px',
+  },
 };
