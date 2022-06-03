@@ -1,3 +1,4 @@
+import { breakpoints, mediaQueryType } from '../constants';
 import { DefaultTheme } from 'styled-components';
 
 export const light: DefaultTheme = {
@@ -34,8 +35,8 @@ export const light: DefaultTheme = {
     filterBox: '5px',
     shareButton: '24px',
   },
-  breakpoints: {
-    sm: '576px',
-    lg: '992px',
+  device: {
+    mobile: `@media screen and (${mediaQueryType.maxWidth}: ${breakpoints.sm})`,
+    desktop: `@media screen and (${mediaQueryType.maxWidth}: ${breakpoints.lg})`,
   },
 };
