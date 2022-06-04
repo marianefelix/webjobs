@@ -9,7 +9,9 @@ declare module 'styled-components' {
       dark: string;
       lightCard: string;
       lightBackground: string;
+      lightGrey: string;
       text: string;
+      darkText: string;
     };
     boxShadow: string;
     font: {
@@ -33,6 +35,10 @@ declare module 'styled-components' {
       card: string;
       filterBox: string;
       shareButton: string;
+    };
+    device: {
+      mobile: string;
+      desktop: string;
     };
   }
 }

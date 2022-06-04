@@ -1,4 +1,7 @@
-export const light = {
+import { breakpoints, mediaQueryType } from '../constants';
+import { DefaultTheme } from 'styled-components';
+
+export const light: DefaultTheme = {
   title: 'light',
   color: {
     primary: '#5BA4A4',
@@ -6,7 +9,9 @@ export const light = {
     dark: '#2C3A3A',
     lightCard: '#FFFFFF',
     lightBackground: '#F5F5F5',
+    lightGrey: 'rgba(217, 217, 217, 0.18)',
     text: '#7B8E8E',
+    darkText: '#687575',
   },
   boxShadow: '9px 9px 20px rgba(91, 164, 164, 0.2)',
   font: {
@@ -30,5 +35,9 @@ export const light = {
     card: '5px',
     filterBox: '5px',
     shareButton: '24px',
+  },
+  device: {
+    mobile: `@media screen and (${mediaQueryType.maxWidth}: ${breakpoints.sm})`,
+    desktop: `@media screen and (${mediaQueryType.maxWidth}: ${breakpoints.lg})`,
   },
 };

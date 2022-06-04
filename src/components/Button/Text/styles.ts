@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ButtonContainer = styled.button`
+  width: fit-content;
   background-color: transparent;
   color: ${({ theme }) => theme.color.primary};
 
