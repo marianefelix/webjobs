@@ -1,5 +1,6 @@
 import { Home } from 'pages/Home';
 import { JobList } from 'pages/JobList';
+import { Login } from 'pages/Login';
 
 export const routes = [
   {
@@ -9,5 +10,9 @@ export const routes = [
   {
     path: 'list',
     element: <JobList />,
+  },
+  {
+    path: 'login',
+    element: <Login />,
   },
 ];

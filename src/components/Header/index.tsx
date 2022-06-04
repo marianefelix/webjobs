@@ -4,7 +4,7 @@ import { HeaderContainer } from './styled';
 export const Header = () => {
   return (
     <HeaderContainer>
-      <LogoWhite />
+      <LogoWhite aria-labelledby="title" />
     </HeaderContainer>
   );
 };
