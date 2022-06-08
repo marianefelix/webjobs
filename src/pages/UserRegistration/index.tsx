@@ -1,4 +1,5 @@
 import {
+  ButtonsContainer,
   Description,
   Form,
   FormGroup,
@@ -46,17 +47,19 @@ export const UserRegistration = () => {
                 <Input required type="email" placeholder="Email" />
                 <Input required type="password" placeholder="Password" />
               </FormGroup>
-              <PrimaryButton
-                width="126px"
-                padding="15px 25px"
-                onClick={() => {}}
-                type="submit"
-              >
-                Sign Up
-              </PrimaryButton>
-              <TextButton onClick={() => {}} type="button">
-                back
-              </TextButton>
+              <ButtonsContainer>
+                <PrimaryButton
+                  width="126px"
+                  padding="15px 25px"
+                  onClick={() => {}}
+                  type="submit"
+                >
+                  Sign Up
+                </PrimaryButton>
+                <TextButton onClick={() => {}} type="button">
+                  back
+                </TextButton>
+              </ButtonsContainer>
             </Form>
           </Panel>
         </RegistrationSection>

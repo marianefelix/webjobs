@@ -8,6 +8,15 @@ export const UserRegistrationContainer = styled.div`
   flex-direction: column;
 
   padding: 3.5rem 5rem 0 5rem;
+
+  ${({ theme }) => theme.device.desktop} {
+    padding: 2rem 3rem 0 3rem;
+    gap: 2rem;
+
+    footer {
+      justify-content: center;
+    }
+  }
 `;
 
 export const Header = styled.header`
@@ -15,6 +24,10 @@ export const Header = styled.header`
 
   display: flex;
   align-items: center;
+
+  ${({ theme }) => theme.device.desktop} {
+    justify-content: center;
+  }
 `;
 
 export const Main = styled.main`
@@ -23,6 +36,12 @@ export const Main = styled.main`
   flex: 1;
 
   gap: 1.5rem;
+
+  ${({ theme }) => theme.device.desktop} {
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+  }
 `;
 
 export const ImageSection = styled.section`
@@ -45,6 +64,12 @@ export const RegistrationSection = styled.section`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+  ${({ theme }) => theme.device.desktop} {
+    & > div {
+      padding: 40px 30px;
+    }
+  }
 `;
 
 export const Description = styled.h3`
@@ -52,6 +77,10 @@ export const Description = styled.h3`
   font-weight: ${({ theme }) => theme.font.weight.medium};
   line-height: 30px;
   color: ${({ theme }) => theme.color.darkText};
+
+  ${({ theme }) => theme.device.desktop} {
+    font-size: ${({ theme }) => theme.font.size.medium};
+  }
 `;
 
 export const Form = styled.form`
@@ -64,14 +93,33 @@ export const Form = styled.form`
   & > div:nth-child(2) {
     margin-bottom: 3rem;
   }
-
-  & > button {
-    margin-right: 2rem;
-  }
 `;
 
 export const FormGroup = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
+
+  ${({ theme }) => theme.device.desktop} {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+`;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  ${({ theme }) => theme.device.desktop} {
+    flex-direction: column;
+
+    button {
+      font-size: ${({ theme }) => theme.font.size.medium};
+    }
+
+    button:first-child {
+      width: 100%;
+    }
+  }
 `;
