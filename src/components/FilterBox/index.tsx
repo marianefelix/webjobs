@@ -1,5 +1,5 @@
 import { FilterChip } from '../FilterChip';
-import { Box, ClearButton, Item, List } from './styled';
+import { Box, ClearButton, Item, List } from './styles';
 
 export const FilterBox = () => {
   return (

@@ -9,7 +9,7 @@ import {
   Item,
   Flex,
   Divider,
-} from './styled';
+} from './styles';
 import { Tag } from 'components/Tag';
 import { Badge } from 'components/Badge';
 export interface JobType {

@@ -5,7 +5,7 @@ import { PrimaryButton } from 'components/Button/Primary';
 import { TextButton } from 'components/Button/Text';
 import { Input } from 'components/Input';
 import { Panel } from 'components/Panel';
-import { ImageSection, LoginContainer, Main, WelcomeText } from './styled';
+import { ImageSection, LoginContainer, Main, WelcomeText } from './styles';
 import { Footer } from 'components/Footer';
 
 export const Login = () => {
@@ -28,8 +28,12 @@ export const Login = () => {
           <Input type="email" placeholder="Email" />
           <Input type="password" placeholder="Password" />
 
-          <PrimaryButton padding="15px">Login</PrimaryButton>
-          <TextButton onClick={() => {}}>or sign up</TextButton>
+          <PrimaryButton padding="15px" type="submit">
+            Login
+          </PrimaryButton>
+          <TextButton onClick={() => {}} type="button">
+            or sign up
+          </TextButton>
         </Panel>
       </Main>
       <Footer justifyContent="center" />
