@@ -37,8 +37,10 @@ declare module 'styled-components' {
       shareButton: string;
     };
     device: {
-      mobile: string;
-      desktop: string;
+      mobile: (mediaQueryType?: string) => string;
+      tablet: (mediaQueryType?: string) => string;
+      desktop: (mediaQueryType?: string) => string;
+      ultrawide: (mediaQueryType?: string) => string;
     };
   }
 }

@@ -1,4 +1,4 @@
-import { breakpoints, mediaQueryType } from '../constants';
+import { breakpoints } from '../constants';
 import { DefaultTheme } from 'styled-components';
 
 export const light: DefaultTheme = {
@@ -37,7 +37,13 @@ export const light: DefaultTheme = {
     shareButton: '24px',
   },
   device: {
-    mobile: `@media screen and (${mediaQueryType.maxWidth}: ${breakpoints.sm})`,
-    desktop: `@media screen and (${mediaQueryType.maxWidth}: ${breakpoints.lg})`,
+    mobile: (mediaQueryType = 'max-width') =>
+      `@media screen and (${mediaQueryType}: ${breakpoints.sm})`,
+    tablet: (mediaQueryType = 'max-width') =>
+      `@media screen and (${mediaQueryType}: ${breakpoints.md})`,
+    desktop: (mediaQueryType = 'max-width') =>
+      `@media screen and (${mediaQueryType}: ${breakpoints.lg})`,
+    ultrawide: (mediaQueryType = 'max-width') =>
+      `@media screen and (${mediaQueryType}: ${breakpoints.xxl})`,
   },
 };
