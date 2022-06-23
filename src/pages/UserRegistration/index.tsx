@@ -17,7 +17,11 @@ import { PrimaryButton } from 'components/Button/Primary';
 import { TextButton } from 'components/Button/Text';
 import { Footer } from 'components/Footer';
 
+import { useNavigate } from 'react-router-dom';
+
 export const UserRegistration = () => {
+  const navigate = useNavigate();
+
   return (
     <UserRegistrationContainer>
       <Header>
@@ -51,12 +55,12 @@ export const UserRegistration = () => {
                 <PrimaryButton
                   width="126px"
                   padding="15px 25px"
-                  onClick={() => {}}
+                  onClick={() => navigate('/login', { replace: false })}
                   type="submit"
                 >
                   Sign Up
                 </PrimaryButton>
-                <TextButton onClick={() => {}} type="button">
+                <TextButton onClick={() => navigate(-1)} type="button">
                   back
                 </TextButton>
               </ButtonsContainer>
