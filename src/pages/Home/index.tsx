@@ -23,13 +23,18 @@ import { useNavigate } from 'react-router-dom';
 
 export const Home = () => {
   const navigate = useNavigate();
+
   return (
     <HomeContainer>
       <Header>
         <Logo />
         <ButtonsContainer>
           <TextButton onClick={() => navigate('login')}>Sign In</TextButton>
-          <SecondaryButton width="126px" padding="15px 25px" onClick={() => {}}>
+          <SecondaryButton
+            width="126px"
+            padding="15px 25px"
+            onClick={() => navigate('user-registration')}
+          >
             Sign Up
           </SecondaryButton>
         </ButtonsContainer>
@@ -44,7 +49,10 @@ export const Home = () => {
               <BoxDescription>
                 Register jobs available at your company
               </BoxDescription>
-              <PrimaryButton padding="20px 45px" onClick={() => {}}>
+              <PrimaryButton
+                padding="20px 45px"
+                onClick={() => navigate('user-registration')}
+              >
                 I'M A COMPANY
               </PrimaryButton>
             </Box>
@@ -53,7 +61,7 @@ export const Home = () => {
               <BoxDescription>
                 Search and see the jobs available to you
               </BoxDescription>
-              <TextButton onClick={() => {}}>See jobs</TextButton>
+              <TextButton onClick={() => navigate('list')}>See jobs</TextButton>
             </Box>
           </Panel>
         </DescriptionSection>

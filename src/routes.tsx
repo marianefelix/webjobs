@@ -1,8 +1,14 @@
 import { Home } from 'pages/Home';
 import { JobList } from 'pages/JobList';
 import { Login } from 'pages/Login';
+import { UserRegistration } from 'pages/UserRegistration';
 
-export const routes = [
+interface RoutesType {
+  path: string;
+  element: JSX.Element;
+}
+
+export const routes: RoutesType[] = [
   {
     path: '/',
     element: <Home />,
@@ -14,5 +20,9 @@ export const routes = [
   {
     path: 'login',
     element: <Login />,
+  },
+  {
+    path: 'user-registration',
+    element: <UserRegistration />,
   },
 ];

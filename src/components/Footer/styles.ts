@@ -6,7 +6,7 @@ interface FooterContainerType {
 
 export const FooterContainer = styled.footer<FooterContainerType>`
   width: 100%;
-  height: 3rem;
+  min-height: 3rem;
 
   display: flex;
   justify-content: ${(props) => props.justifyContent};
