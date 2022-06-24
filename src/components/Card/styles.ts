@@ -43,17 +43,17 @@ export const CardContainer = styled.div`
     color: ${({ theme }) => theme.color.primary};
   }
 
-  @media screen and (max-width: 992px) {
+  ${({ theme }) => theme.device.desktop()} {
     flex-direction: column;
   }
 
-  @media screen and (max-width: 576px) {
+  ${({ theme }) => theme.device.mobile()} {
     padding: 30px 20px 20px;
   }
 `;
 
 export const CompanyImage = styled.img`
-  @media screen and (max-width: 576px) {
+  ${({ theme }) => theme.device.mobile()} {
     position: absolute;
     width: 48px;
     top: -24px;
@@ -80,7 +80,7 @@ export const List = styled.ul`
   gap: 15px;
   list-style-type: none;
 
-  @media screen and (max-width: 992px) {
+  ${({ theme }) => theme.device.desktop()} {
     width: 100%;
   }
 `;
@@ -93,13 +93,13 @@ export const Flex = styled.div<FlexProps>`
   gap: ${({ gap }) => (gap ? gap : '10px')};
   color: ${({ color, theme }) => (color ? color : theme.color.text)};
 
-  @media screen and (max-width: 992px) {
+  ${({ theme }) => theme.device.desktop()} {
     width: 100%;
   }
 `;
 
 export const Divider = styled.hr`
-  @media screen and (min-width: 992px) {
+  ${({ theme }) => theme.device.desktop('min-width')} {
     display: none;
   }
   width: 100%;

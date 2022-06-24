@@ -9,8 +9,8 @@ export const UserRegistrationContainer = styled.div`
 
   padding: 3.5rem 5rem 0 5rem;
 
-  ${({ theme }) => theme.device.desktop} {
-    padding: 2rem 3rem 0 3rem;
+  ${({ theme }) => theme.device.desktop()} {
+    padding: 2rem 0;
     gap: 2rem;
 
     footer {
@@ -25,7 +25,7 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
 
-  ${({ theme }) => theme.device.desktop} {
+  ${({ theme }) => theme.device.desktop()} {
     justify-content: center;
   }
 `;
@@ -37,7 +37,7 @@ export const Main = styled.main`
 
   gap: 1.5rem;
 
-  ${({ theme }) => theme.device.desktop} {
+  ${({ theme }) => theme.device.desktop()} {
     justify-content: center;
     align-items: center;
     gap: 0;
@@ -53,7 +53,7 @@ export const ImageSection = styled.section`
     height: 70%;
   }
 
-  ${({ theme }) => theme.device.desktop} {
+  ${({ theme }) => theme.device.desktop()} {
     display: none;
   }
 `;
@@ -65,7 +65,7 @@ export const RegistrationSection = styled.section`
   justify-content: flex-end;
   align-items: center;
 
-  ${({ theme }) => theme.device.desktop} {
+  ${({ theme }) => theme.device.desktop()} {
     & > div {
       padding: 40px 30px;
     }
@@ -78,7 +78,7 @@ export const Description = styled.h3`
   line-height: 30px;
   color: ${({ theme }) => theme.color.darkText};
 
-  ${({ theme }) => theme.device.desktop} {
+  ${({ theme }) => theme.device.desktop()} {
     font-size: ${({ theme }) => theme.font.size.medium};
   }
 `;
@@ -100,7 +100,7 @@ export const FormGroup = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
 
-  ${({ theme }) => theme.device.desktop} {
+  ${({ theme }) => theme.device.desktop()} {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
@@ -111,7 +111,7 @@ export const ButtonsContainer = styled.div`
   align-items: center;
   gap: 1.5rem;
 
-  ${({ theme }) => theme.device.desktop} {
+  ${({ theme }) => theme.device.desktop()} {
     flex-direction: column;
 
     button {

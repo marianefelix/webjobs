@@ -9,7 +9,7 @@ export const LoginContainer = styled.div`
   align-items: center;
   justify-content: center;
 
-  ${({ theme }) => theme.device.mobile} {
+  ${({ theme }) => theme.device.mobile()} {
     padding: 0 3.5rem;
   }
 
@@ -30,9 +30,10 @@ export const WelcomeText = styled.h2`
 `;
 
 export const ImageSection = styled.section`
-  ${({ theme }) => theme.device.desktop} {
+  ${({ theme }) => theme.device.desktop()} {
     display: none;
   }
+
   position: absolute;
   left: -162px;
   bottom: 0;
@@ -56,7 +57,7 @@ export const Main = styled.main`
     }
   }
 
-  ${({ theme }) => theme.device.mobile} {
+  ${({ theme }) => theme.device.mobile()} {
     width: 100%;
     & > div {
       width: 100%;

@@ -10,9 +10,11 @@ export const HomeContainer = styled.div`
 
   background-color: ${({ theme }) => theme.color.lightBackground};
 
-  ${({ theme }) => theme.device.mobile} {
-    padding: 3.5rem 3.5rem 0 3.5rem;
+  ${({ theme }) => theme.device.tablet()} {
+    padding: 3rem 3rem 0 3rem;
+  }
 
+  ${({ theme }) => theme.device.mobile()} {
     & > footer {
       padding-bottom: 1.5rem;
       justify-content: center;
@@ -27,7 +29,7 @@ export const Header = styled.header`
   justify-content: space-between;
   align-items: center;
 
-  ${({ theme }) => theme.device.mobile} {
+  ${({ theme }) => theme.device.mobile()} {
     flex-direction: column;
     align-items: start;
 
@@ -41,7 +43,7 @@ export const ButtonsContainer = styled.div`
 
   gap: 2.5rem;
 
-  ${({ theme }) => theme.device.mobile} {
+  ${({ theme }) => theme.device.mobile()} {
     & > button {
       font-size: 97%;
     }
@@ -61,7 +63,7 @@ export const Main = styled.main`
 
   margin-top: 3.5rem;
 
-  ${({ theme }) => theme.device.mobile} {
+  ${({ theme }) => theme.device.mobile()} {
     justify-content: flex-start;
 
     margin-bottom: 50px;
@@ -73,12 +75,16 @@ export const DescriptionSection = styled.section`
   flex-direction: column;
   gap: 2.5rem;
 
-  ${({ theme }) => theme.device.mobile} {
+  ${({ theme }) => theme.device.mobile()} {
     & > div:last-child {
       width: 100%;
       flex-direction: column;
       gap: 1.5rem;
     }
+  }
+
+  ${({ theme }) => theme.device.ultrawide('min-width')} {
+    justify-content: center;
   }
 `;
 
@@ -90,7 +96,7 @@ export const Description = styled.h1`
   font-size: 35px;
   line-height: 45px;
 
-  ${({ theme }) => theme.device.mobile} {
+  ${({ theme }) => theme.device.mobile()} {
     font-size: calc((80 / 100) * 35px);
     line-height: 35px;
   }
@@ -103,7 +109,7 @@ export const Box = styled.div`
 
   padding: 15px 0;
 
-  ${({ theme }) => theme.device.mobile} {
+  ${({ theme }) => theme.device.mobile()} {
     gap: 1.5rem;
 
     & > button {
@@ -125,7 +131,7 @@ export const BoxDescription = styled.p`
   line-height: 30px;
   color: ${({ theme }) => theme.color.darkText};
 
-  ${({ theme }) => theme.device.mobile} {
+  ${({ theme }) => theme.device.mobile()} {
     max-width: 13rem;
     font-size: ${({ theme }) => theme.font.size.large};
   }
@@ -136,7 +142,7 @@ export const Divider = styled.hr`
   background-color: #e3d8d8;
   height: 100%;
 
-  ${({ theme }) => theme.device.mobile} {
+  ${({ theme }) => theme.device.mobile()} {
     width: 100%;
   }
 `;
@@ -153,7 +159,14 @@ export const ImageSection = styled.section`
     align-self: end;
   }
 
-  ${({ theme }) => theme.device.desktop} {
+  ${({ theme }) => theme.device.desktop('max-width')} {
     display: none;
+  }
+
+  ${({ theme }) => theme.device.ultrawide('min-width')} {
+    svg {
+      width: 90%;
+      height: 65%;
+    }
   }
 `;

@@ -1,5 +1,5 @@
 import { ReactComponent as LogoWhite } from 'assets/images/logo-white.svg';
-import { HeaderContainer } from './styled';
+import { HeaderContainer } from './styles';
 
 export const Header = () => {
   return (

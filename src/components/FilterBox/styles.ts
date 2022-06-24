@@ -13,7 +13,7 @@ export const Box = styled.div`
   box-shadow: ${({ theme }) => theme.boxShadow};
   border-radius: ${({ theme }) => theme.borderRadius.filterBox};
 
-  @media screen and (max-width: 576px) {
+  ${({ theme }) => theme.device.mobile()} {
     padding: 15px 20px;
   }
 `;
