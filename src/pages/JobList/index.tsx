@@ -2,7 +2,7 @@ import { Card } from 'components/Card';
 import { FilterBox } from 'components/FilterBox';
 import jobs from '../../data.json';
 import { Header } from 'components/Header';
-import { AbsoluteBox, Main } from './styled';
+import { AbsoluteBox, Main } from './styles';
 
 export const JobList = () => {
   return (

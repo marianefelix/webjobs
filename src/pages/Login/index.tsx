@@ -5,7 +5,7 @@ import { PrimaryButton } from 'components/Button/Primary';
 import { TextButton } from 'components/Button/Text';
 import { Input } from 'components/Input';
 import { Panel } from 'components/Panel';
-import { ImageSection, LoginContainer, Main, WelcomeText } from './styled';
+import { ImageSection, LoginContainer, Main, WelcomeText } from './styles';
 import { Footer } from 'components/Footer';
 
 export const Login = () => {

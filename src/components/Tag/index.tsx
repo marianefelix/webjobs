@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes, ReactNode } from 'react';
-import { TagContainer } from './styled';
+import { TagContainer } from './styles';
 
 interface TagProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   selected: boolean;

@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { FilterChipContainer, CloseButton, CloseIcon, Text } from './styled';
+import { FilterChipContainer, CloseButton, CloseIcon, Text } from './styles';
 
 interface FilterChipProps {
   children: ReactNode;

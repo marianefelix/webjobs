@@ -1,4 +1,4 @@
-import { BadgeContainer, Text } from './styled';
+import { BadgeContainer, Text } from './styles';
 
 interface BadgeProps {
   type: 'new' | 'featured';

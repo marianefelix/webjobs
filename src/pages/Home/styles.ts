@@ -10,9 +10,11 @@ export const HomeContainer = styled.div`
 
   background-color: ${({ theme }) => theme.color.lightBackground};
 
-  ${({ theme }) => theme.device.mobile()} {
-    padding: 3.5rem 3.5rem 0 3.5rem;
+  ${({ theme }) => theme.device.tablet()} {
+    padding: 3rem 3rem 0 3rem;
+  }
 
+  ${({ theme }) => theme.device.mobile()} {
     & > footer {
       padding-bottom: 1.5rem;
       justify-content: center;
@@ -79,6 +81,10 @@ export const DescriptionSection = styled.section`
       flex-direction: column;
       gap: 1.5rem;
     }
+  }
+
+  ${({ theme }) => theme.device.ultrawide('min-width')} {
+    justify-content: center;
   }
 `;
 
@@ -155,5 +161,12 @@ export const ImageSection = styled.section`
 
   ${({ theme }) => theme.device.desktop('max-width')} {
     display: none;
+  }
+
+  ${({ theme }) => theme.device.ultrawide('min-width')} {
+    svg {
+      width: 90%;
+      height: 65%;
+    }
   }
 `;
