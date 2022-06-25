@@ -68,3 +68,5 @@ export const Main = styled.main`
     margin-bottom: 60px;
   }
 `;
+
+export const Form = styled.form``;

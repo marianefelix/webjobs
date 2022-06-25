@@ -5,10 +5,11 @@ interface FlexProps {
   color?: string;
 }
 
-export const JobTitle = styled.h3`
+export const JobTitle = styled.a`
   font-size: ${({ theme }) => theme.font.size.large};
   font-weight: ${({ theme }) => theme.font.weight.bold};
   color: ${({ theme }) => theme.color.dark};
+  text-decoration: none;
 
   transition: color 0.3s;
 
