@@ -5,10 +5,18 @@ import { PrimaryButton } from 'components/Button/Primary';
 import { TextButton } from 'components/Button/Text';
 import { Input } from 'components/Input';
 import { Panel } from 'components/Panel';
-import { ImageSection, LoginContainer, Main, WelcomeText } from './styles';
+import {
+  Form,
+  ImageSection,
+  LoginContainer,
+  Main,
+  WelcomeText,
+} from './styles';
 import { Footer } from 'components/Footer';
+import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
+  const navigate = useNavigate();
   return (
     <LoginContainer>
       <Main>
@@ -25,11 +33,20 @@ export const Login = () => {
           gap="30px"
         >
           <WelcomeText>Welcome back!</WelcomeText>
-          <Input type="email" placeholder="Email" />
-          <Input type="password" placeholder="Password" />
+          <Form>
+            <Input type="email" placeholder="Email" required />
+            <Input type="password" placeholder="Password" required />
 
-          <PrimaryButton padding="15px">Login</PrimaryButton>
-          <TextButton onClick={() => {}}>or sign up</TextButton>
+            <PrimaryButton padding="15px" type="submit">
+              Login
+            </PrimaryButton>
+            <TextButton
+              onClick={() => navigate('/user-registration')}
+              type="button"
+            >
+              or sign up
+            </TextButton>
+          </Form>
         </Panel>
       </Main>
       <Footer justifyContent="center" />

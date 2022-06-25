@@ -1,10 +1,6 @@
 import { InputHTMLAttributes } from 'react';
 import { InputContainer } from './styles';
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  placeholder: string;
-}
-
-export const Input = ({ ...props }: InputProps) => {
+export const Input = ({ ...props }: InputHTMLAttributes<HTMLInputElement>) => {
   return <InputContainer {...props} />;
 };

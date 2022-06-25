@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import bgHeader from 'assets/images/bg-header-desktop.svg';
 
-export const HeaderContainer = styled.header`
+interface HeaderContainerType {
+  paddingTop?: string;
+}
+
+export const HeaderContainer = styled.header<HeaderContainerType>`
   width: 100%;
   height: 156px;
 
@@ -12,7 +16,7 @@ export const HeaderContainer = styled.header`
 
   background-color: ${({ theme }) => theme.color.primary};
   background-image: url(${bgHeader});
-  padding-top: 40px;
+  padding-top: ${(props) => (props.paddingTop ? props.paddingTop : '40px')};
 
   svg {
     margin-left: 10%;

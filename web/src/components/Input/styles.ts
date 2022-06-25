@@ -3,11 +3,11 @@ import styled from 'styled-components';
 export const InputContainer = styled.input`
   background-color: ${({ theme }) => theme.color.lightCard};
 
-  color: ${({ theme }) => theme.color.text};
+  color: ${({ theme }) => theme.color.darkText};
   font-size: ${({ theme }) => theme.font.size.medium};
   font-weight: ${({ theme }) => theme.font.weight.medium};
 
-  border: none;
+  border: 1px solid ${({ theme }) => theme.color.lightCard};
   border-radius: ${({ theme }) => theme.borderRadius.card};
 
   padding: 15px 25px;
@@ -19,5 +19,10 @@ export const InputContainer = styled.input`
     color: ${({ theme }) => theme.color.text};
     font-size: ${({ theme }) => theme.font.size.medium};
     font-weight: ${({ theme }) => theme.font.weight.medium};
+  }
+
+  &:focus {
+    outline: 0 !important;
+    border-color: ${({ theme }) => theme.color.primary};
   }
 `;

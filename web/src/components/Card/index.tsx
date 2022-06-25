@@ -26,6 +26,7 @@ export interface JobType {
   location: string;
   languages: string[];
   tools: string[];
+  link: string;
 }
 
 interface TagType {
@@ -74,7 +75,7 @@ export const Card = ({ job }: { job: JobType }) => {
             {job.featured && <Badge type="featured" />}
           </Flex>
 
-          <JobTitle>{job.position}</JobTitle>
+          <JobTitle href={job.link}>{job.position}</JobTitle>
           <Flex>
             <span>{job.postedAt}</span> • <span>{job.contract}</span> •
             <span>{job.location}</span>

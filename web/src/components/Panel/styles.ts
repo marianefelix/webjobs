@@ -13,10 +13,11 @@ interface PanelContainerType {
   alignItems?: 'center' | 'start' | 'end';
   flexDirection?: 'row' | 'column';
   gap?: string;
+  width?: string;
 }
 
 export const PanelContainer = styled.div<PanelContainerType>`
-  width: fit-content;
+  width: ${(props) => (props.width ? props.width : 'fit-content')};
   padding: ${(props) => props.padding};
 
   display: ${(props) => props.display ?? 'block'};

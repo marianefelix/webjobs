@@ -14,6 +14,7 @@ interface PanelProps {
   alignItems?: 'center' | 'start' | 'end';
   flexDirection?: 'row' | 'column';
   gap?: string;
+  width?: string;
   children: ReactNode;
 }
 
@@ -24,6 +25,7 @@ export const Panel = ({
   alignItems,
   flexDirection,
   gap,
+  width,
   children,
 }: PanelProps) => {
   return (
@@ -34,6 +36,7 @@ export const Panel = ({
       alignItems={alignItems}
       flexDirection={flexDirection}
       gap={gap}
+      width={width}
     >
       {children}
     </PanelContainer>
