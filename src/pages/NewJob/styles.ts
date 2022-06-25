@@ -62,7 +62,3 @@ export const ButtonsContainer = styled.div`
     }
   }
 `;
-
-// export const FormGroup = styled.div`
-
-// `

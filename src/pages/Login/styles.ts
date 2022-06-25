@@ -69,4 +69,11 @@ export const Main = styled.main`
   }
 `;
 
-export const Form = styled.form``;
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+`;
