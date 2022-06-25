@@ -43,13 +43,15 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 > Certifique-se de ter [NodeJS](https://nodejs.org/en/) e [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable) instalados
 
-Execute os seguintes comandos no seu terminal:
+Para rodar o frontend da aplicação, execute os seguintes comandos no seu terminal:
 
 ```bash
 # Clone o repositório
 $ git clone https://github.com/lorenatoscano/webjobs.git
 # Entre no repositório
 $ cd webjobs
+# Entre no diretório do projeto frontend
+$ cd web
 # Instale as dependências
 $ yarn
 # Execute a aplicação
@@ -57,6 +59,21 @@ $ yarn start
 ```
 
 Acesse em seu navegador http://localhost:3000/ para ver o resultado.
+
+Para rodar o servidor backend, execute os seguintes comandos no seu terminal:
+
+```bash
+# Entre no repositório
+$ cd webjobs
+# Entre no diretório do projeto backend
+$ cd server
+# Instale as dependências
+$ yarn
+# Execute a aplicação
+$ yarn start
+```
+
+O servidor estará rodando no endereço: http://localhost:3333/.
 
 ## Autoras
 
