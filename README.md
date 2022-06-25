@@ -73,6 +73,8 @@ $ yarn
 $ yarn start
 ```
 
+O servidor estará rodando no endereço: http://localhost:3333/.
+
 ## Autoras
 
 Feito por [Lorena Toscano](https://github.com/lorenatoscano) e [Mariane Felix](https://github.com/marianefelix).
