@@ -7,6 +7,7 @@ import { Input } from 'components/Input';
 import { Panel } from 'components/Panel';
 import { Option, Select } from 'components/Select';
 import { useState, FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import {
   ButtonsContainer,
@@ -59,8 +60,21 @@ const toolsOptions = [
   { value: 'Vue' },
 ];
 
+const initialForm: FormType = {
+  role: '',
+  level: '',
+  workingTime: '',
+  location: '',
+  languages: [],
+  tools: [],
+  new: false,
+  featured: false,
+  link: '',
+};
 export const NewJob = () => {
-  const [form, setForm] = useState<FormType>();
+  const [form, setForm] = useState<FormType>(initialForm);
+
+  const navigate = useNavigate();
 
   const handleChange = (
     newValue: Option | (EventTarget & HTMLInputElement),
@@ -69,14 +83,29 @@ export const NewJob = () => {
       | 'level'
       | 'workingTime'
       | 'location'
-      | 'languages'
-      | 'tools'
       | 'new'
       | 'featured'
-      | 'link'
+      | 'link',
+    checkbox = false
   ) => {
     const updatedValue = {
-      [key]: newValue.value,
+      [key]: checkbox ? (newValue as HTMLInputElement).checked : newValue.value,
+    };
+    setForm(
+      (prevForm) =>
+        ({
+          ...prevForm,
+          ...updatedValue,
+        } as FormType)
+    );
+  };
+
+  const handleChangeMulti = (
+    newValues: Option[],
+    key: 'languages' | 'tools'
+  ) => {
+    const updatedValue = {
+      [key]: newValues,
     };
     setForm(
       (prevForm) =>
@@ -90,6 +119,7 @@ export const NewJob = () => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(form);
+    navigate('/list');
   };
 
   return (
@@ -117,39 +147,54 @@ export const NewJob = () => {
             <Input
               onChange={(event) => handleChange(event.target, 'workingTime')}
               placeholder="Working time"
+              required
             />
             <Input
               onChange={(event) => handleChange(event.target, 'location')}
               placeholder="Location"
+              required
             />
             <Select
               options={languagesOptions}
-              onChange={(selectedOption: Option) =>
-                handleChange(selectedOption, 'languages')
+              onChange={(selectedOption: Option[]) =>
+                handleChangeMulti(selectedOption, 'languages')
               }
               placeholder="Languages"
+              isMulti
             />
             <Select
               options={toolsOptions}
-              onChange={(selectedOption: Option) =>
-                handleChange(selectedOption, 'tools')
+              onChange={(selectedOption: Option[]) =>
+                handleChangeMulti(selectedOption, 'tools')
               }
               placeholder="Tools"
+              isMulti
             />
             <Input
-              onChange={(event) => handleChange(event.target, 'location')}
+              onChange={(event) => handleChange(event.target, 'link')}
               placeholder="Link to apply"
+              required
               type="url"
             />
             <CheckboxesContainer>
-              <Checkbox>Featured</Checkbox>
-              <Checkbox>New</Checkbox>
+              <Checkbox
+                onChange={(event) =>
+                  handleChange(event.target, 'featured', true)
+                }
+              >
+                Featured
+              </Checkbox>
+              <Checkbox
+                onChange={(event) => handleChange(event.target, 'new', true)}
+              >
+                New
+              </Checkbox>
             </CheckboxesContainer>
             <ButtonsContainer>
               <PrimaryButton width="126px" padding="15px 25px" type="submit">
                 Save
               </PrimaryButton>
-              <TextButton onClick={() => {}} type="button">
+              <TextButton onClick={() => navigate(-1)} type="button">
                 back
               </TextButton>
             </ButtonsContainer>
