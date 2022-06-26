@@ -38,18 +38,32 @@ export class UserService {
   authenticateUser = (data: Omit<UserRequest, 'logoUrl' | 'companyName'>) => {
     const users = this.getUsers();
 
-    const filteredUser = users.filter(
-      (userItem) =>
-        userItem.email.toLocaleLowerCase() === data.email.toLocaleLowerCase() &&
-        userItem.password.toLocaleLowerCase() ===
-          data.password.toLocaleLowerCase()
-    );
+    const userExists = users.some((userItem) => {
+      const newUserEmailData = data.email.toLocaleLowerCase();
+      const newUserEmail = userItem.email.toLocaleLowerCase();
 
-    if (filteredUser.length === 0) {
-      return new Error('Email ou senha incorretos.');
+      if (newUserEmail === newUserEmailData) {
+        return true;
+      }
+    });
+
+    if (userExists) {
+      const filteredUser = users.filter(
+        (userItem) =>
+          userItem.email.toLocaleLowerCase() ===
+            data.email.toLocaleLowerCase() &&
+          userItem.password.toLocaleLowerCase() ===
+            data.password.toLocaleLowerCase()
+      );
+
+      if (filteredUser.length === 0) {
+        return new Error('Email ou senha incorretos.');
+      }
+
+      return 'Usuário autenticado com sucesso!';
     }
 
-    return 'Usuário autenticado com sucesso!';
+    return 'Usuário não existe.';
   };
 
   getUsers = (): UserRequest[] => {
