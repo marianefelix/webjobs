@@ -25,7 +25,7 @@ export class UserService {
         });
 
         if (alreadyExists) {
-            return new Error('Usuário com esse email já existe');
+            return new Error('Já existe um usuário cadastrado com esse email.');
         }
 
         users.push(data);
@@ -33,6 +33,19 @@ export class UserService {
         fs.writeFileSync(`${this.basePath}/users.json`, newUsers, 'utf8');
 
         return data;
+    };
+
+    authenticateUser = (data: Omit<UserRequest, 'logo_url' | 'company_name'>) => {
+        const users = this.getUsers();
+
+        const filteredUser = users.filter((userItem) => userItem.email === data.email 
+            && userItem.password === data.password);
+
+        if (filteredUser.length === 0) {
+            return new Error('Email ou senha incorretos.');
+        }
+
+        return 'Usuário autenticado com sucesso!';
     };
 
     getUsers = (): UserRequest[] => {
