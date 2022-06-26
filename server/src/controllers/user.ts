@@ -1,40 +1,40 @@
-import { Request, Response } from "express";
-import { UserService } from "../services/user";
+import { Request, Response } from 'express';
+import { UserService } from '../services/user';
 
 export class UserController {
-    private service = new UserService();
+  private service = new UserService();
 
-    handleSaveUser = (request: Request, response: Response) => {
-        const data = request.body;
+  handleSaveUser = (request: Request, response: Response) => {
+    const data = request.body;
 
-        const result = this.service.saveUser(data);
+    const result = this.service.saveUser(data);
 
-        if (result instanceof Error) {
-            return response.status(400).json(result.message);
-        }
+    if (result instanceof Error) {
+      return response.status(400).json(result.message);
+    }
 
-        return response.status(200).json('Usuário cadastrado com sucesso!');
-    };
+    return response.status(200).json('Usuário cadastrado com sucesso!');
+  };
 
-    handleGetUser = (response: Response)  => {
-        const result = this.service.getUsers();
+  handleGetUser = (response: Response) => {
+    const result = this.service.getUsers();
 
-        if (result instanceof Error) {
-            return response.status(400).json(result.message);
-        }
-        
-        return response.status(200).json(result);
-    };
+    if (result instanceof Error) {
+      return response.status(400).json(result.message);
+    }
 
-    handleAuthenticateUser = (request: Request, response: Response) => {
-        const data = request.body;
+    return response.status(200).json(result);
+  };
 
-        const result = this.service.authenticateUser(data);
+  handleAuthenticateUser = (request: Request, response: Response) => {
+    const data = request.body;
 
-        if (result instanceof Error) {
-            return response.status(400).json(result.message);
-        }
+    const result = this.service.authenticateUser(data);
 
-        return response.status(200).json(result);
-    };
+    if (result instanceof Error) {
+      return response.status(400).json(result.message);
+    }
+
+    return response.status(200).json(result);
+  };
 }
