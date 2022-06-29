@@ -26,11 +26,14 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   const authenticateUser = async (data: UserCredentials) => {
     setIsAuthenticateUserLoading(true);
 
+    const customErrorMessage = 'Error authenticating user, please try again.';
+
     const response = await runRequest<string, UserCredentials>(
       '/user/login',
       'post',
       undefined,
-      data
+      data,
+      customErrorMessage
     );
 
     setIsAuthenticateUserLoading(false);
@@ -52,8 +55,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   const registerUser = async (data: User) => {
     setIsRegisterUserLoading(true);
 
-    const customErrorMessage =
-      'Erro ao cadastrar usuário, por favor tente novamente.';
+    const customErrorMessage = 'Error registering user, please try again.';
 
     const response = await runRequest<string, User>(
       '/user',
