@@ -63,7 +63,7 @@ export class UserService {
       return 'Usuário autenticado com sucesso!';
     }
 
-    return 'Usuário não existe.';
+    return new Error('Usuário não existe.');
   };
 
   getUsers = (): UserRequest[] => {
