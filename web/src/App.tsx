@@ -3,20 +3,22 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './styles/global';
 import { light } from './styles/theme';
 import { routes } from 'routes';
-import { QueryClientProvider } from 'react-query';
-import { queryClient } from 'services/queryClient';
+import { AuthContextProvider } from 'contexts/AuthContext';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 export const App = () => {
   return (
     <ThemeProvider theme={light}>
-      <QueryClientProvider client={queryClient}>
+      <AuthContextProvider>
         <GlobalStyle />
+        <ToastContainer />
         <Routes>
           {routes.map(({ path, element }) => (
             <Route path={path} element={element} key={path} />
           ))}
         </Routes>
-      </QueryClientProvider>
+      </AuthContextProvider>
     </ThemeProvider>
   );
 };

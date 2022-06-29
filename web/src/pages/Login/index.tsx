@@ -1,10 +1,11 @@
-import { ReactComponent as Logo } from 'assets/images/logo-colors.svg';
-import { ReactComponent as GirlImage } from 'assets/images/login.svg';
+import { useNavigate } from 'react-router-dom';
 
 import { PrimaryButton } from 'components/Button/Primary';
 import { TextButton } from 'components/Button/Text';
 import { Input } from 'components/Input';
 import { Panel } from 'components/Panel';
+import { Footer } from 'components/Footer';
+
 import {
   Form,
   ImageSection,
@@ -12,8 +13,9 @@ import {
   Main,
   WelcomeText,
 } from './styles';
-import { Footer } from 'components/Footer';
-import { useNavigate } from 'react-router-dom';
+
+import { ReactComponent as Logo } from 'assets/images/logo-colors.svg';
+import { ReactComponent as GirlImage } from 'assets/images/login.svg';
 
 export const Login = () => {
   const navigate = useNavigate();

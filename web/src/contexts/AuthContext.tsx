@@ -1,26 +1,51 @@
+import { useRequest } from 'hooks/useRequest';
+import { User } from 'models/user';
 import { createContext, ReactNode, useState } from 'react';
 
-interface User {
-  id: string;
-  companyName: string;
-  logoUrl: string;
-  email: string;
-  password: string;
-}
-
 interface AuthContextType {
-  user: User | null;
+  registerUser: (data: User) => Promise<{ success?: string; error?: Error }>;
+  isRegisterUserLoading: boolean;
 }
 
 interface AuthContextProviderProps {
   children: ReactNode;
 }
 
-const AuthContext = createContext({} as AuthContextType);
+export const AuthContext = createContext({} as AuthContextType);
 
 export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
-  const [user, setUser] = useState<User | null>(null);
+  const { runRequest } = useRequest();
+  const [isRegisterUserLoading, setIsRegisterUserLoading] = useState(false);
+
+  const registerUser = async (data: User) => {
+    setIsRegisterUserLoading(true);
+
+    const customErrorMessage =
+      'Erro ao cadastrar usuário, por favor tente novamente.';
+
+    const response = await runRequest<string, User>(
+      '/user',
+      'post',
+      undefined,
+      data,
+      customErrorMessage
+    );
+
+    setIsRegisterUserLoading(false);
+
+    if (response instanceof Error) {
+      return {
+        success: undefined,
+        error: response,
+      };
+    }
+
+    return { success: response, error: undefined };
+  };
+
   return (
-    <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ registerUser, isRegisterUserLoading }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
