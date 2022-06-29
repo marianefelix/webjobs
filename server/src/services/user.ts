@@ -32,7 +32,7 @@ export class UserService {
     const newUsers = JSON.stringify(users, null, ' ');
     fs.writeFileSync(`${this.basePath}/users.json`, newUsers, 'utf8');
 
-    return data;
+    return 'Usuário cadastrado com sucesso!';
   };
 
   authenticateUser = (data: Omit<UserRequest, 'logoUrl' | 'companyName'>) => {
