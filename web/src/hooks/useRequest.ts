@@ -29,9 +29,7 @@ export const useRequest = () => {
 
       if (err.response.data) {
         errorMessage = err.response.data;
-      }
-
-      if (customErrorMessage) {
+      } else if (customErrorMessage) {
         errorMessage = customErrorMessage;
       }
 

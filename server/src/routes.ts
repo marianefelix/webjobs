@@ -9,8 +9,5 @@ routes.post('/user', (request, response) =>
 routes.post('/user/login', (request, response) =>
   new UserController().handleAuthenticateUser(request, response)
 );
-routes.get('/user', (_, response) =>
-  new UserController().handleGetUser(response)
-);
 
 export { routes };

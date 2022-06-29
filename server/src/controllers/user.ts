@@ -13,7 +13,7 @@ export class UserController {
       return response.status(400).json(result.message);
     }
 
-    return response.status(200).json('Usuário cadastrado com sucesso!');
+    return response.status(200).json(result);
   };
 
   handleGetUser = (response: Response) => {
