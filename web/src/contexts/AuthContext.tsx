@@ -1,10 +1,13 @@
-import { useRequest } from 'hooks/useRequest';
-import { User } from 'models/user';
+import { ResponseType, useRequest } from 'hooks/useRequest';
+import { User, UserCredentials } from 'models/user';
 import { createContext, ReactNode, useState } from 'react';
 
 interface AuthContextType {
-  registerUser: (data: User) => Promise<{ success?: string; error?: Error }>;
+  hasUser: boolean;
   isRegisterUserLoading: boolean;
+  isAuthenticateUserLoading: boolean;
+  registerUser: (data: User) => Promise<ResponseType>;
+  authenticateUser: (data: UserCredentials) => Promise<ResponseType>;
 }
 
 interface AuthContextProviderProps {
@@ -15,7 +18,36 @@ export const AuthContext = createContext({} as AuthContextType);
 
 export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   const { runRequest } = useRequest();
+  const [hasUser, setHasUser] = useState(false);
   const [isRegisterUserLoading, setIsRegisterUserLoading] = useState(false);
+  const [isAuthenticateUserLoading, setIsAuthenticateUserLoading] =
+    useState(false);
+
+  const authenticateUser = async (data: UserCredentials) => {
+    setIsAuthenticateUserLoading(true);
+
+    const response = await runRequest<string, UserCredentials>(
+      '/user/login',
+      'post',
+      undefined,
+      data
+    );
+
+    setIsAuthenticateUserLoading(false);
+
+    if (response instanceof Error) {
+      setHasUser(false);
+
+      return {
+        success: undefined,
+        error: response,
+      };
+    }
+
+    setHasUser(true);
+
+    return { success: response, error: undefined };
+  };
 
   const registerUser = async (data: User) => {
     setIsRegisterUserLoading(true);
@@ -44,7 +76,15 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   };
 
   return (
-    <AuthContext.Provider value={{ registerUser, isRegisterUserLoading }}>
+    <AuthContext.Provider
+      value={{
+        hasUser,
+        registerUser,
+        authenticateUser,
+        isAuthenticateUserLoading,
+        isRegisterUserLoading,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

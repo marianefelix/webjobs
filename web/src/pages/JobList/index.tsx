@@ -6,8 +6,11 @@ import { AbsoluteBox, Main } from './styles';
 import { AddJobButton } from 'components/Button/AddJob';
 
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from 'contexts/AuthContext';
 
 export const JobList = () => {
+  const { hasUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   return (
@@ -20,7 +23,7 @@ export const JobList = () => {
         {jobs.map((job) => (
           <Card job={job} />
         ))}
-        <AddJobButton onClick={() => navigate('/new-job')} />
+        {hasUser && <AddJobButton onClick={() => navigate('/new-job')} />}
       </Main>
     </>
   );

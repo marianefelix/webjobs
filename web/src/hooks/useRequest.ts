@@ -1,5 +1,10 @@
 import api from 'services/api';
 
+export interface ResponseType {
+  success?: string;
+  error?: Error;
+}
+
 export const useRequest = () => {
   const runRequest = async <T = unknown, U = unknown>(
     url: string,

@@ -5,4 +5,4 @@ export interface User {
   password: string;
 }
 
-export type UserCredentials = Omit<User, 'companyName' | 'urlLogo'>;
+export type UserCredentials = Omit<User, 'companyName' | 'logoUrl'>;
