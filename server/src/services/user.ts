@@ -32,7 +32,7 @@ export class UserService {
     const newUsers = JSON.stringify(users, null, ' ');
     fs.writeFileSync(`${this.basePath}/users.json`, newUsers, 'utf8');
 
-    return data;
+    return 'Usuário cadastrado com sucesso!';
   };
 
   authenticateUser = (data: Omit<UserRequest, 'logoUrl' | 'companyName'>) => {
@@ -63,7 +63,7 @@ export class UserService {
       return 'Usuário autenticado com sucesso!';
     }
 
-    return 'Usuário não existe.';
+    return new Error('Usuário não existe.');
   };
 
   getUsers = (): UserRequest[] => {
