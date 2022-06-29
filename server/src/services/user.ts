@@ -25,14 +25,14 @@ export class UserService {
     });
 
     if (alreadyExists) {
-      return new Error('Já existe um usuário cadastrado com esse email.');
+      return new Error('There is already a user registered with this email.');
     }
 
     users.push(data);
     const newUsers = JSON.stringify(users, null, ' ');
     fs.writeFileSync(`${this.basePath}/users.json`, newUsers, 'utf8');
 
-    return 'Usuário cadastrado com sucesso!';
+    return 'User registered successfully!';
   };
 
   authenticateUser = (data: Omit<UserRequest, 'logoUrl' | 'companyName'>) => {
@@ -57,13 +57,13 @@ export class UserService {
       );
 
       if (filteredUser.length === 0) {
-        return new Error('Email ou senha incorretos.');
+        return new Error('Invalid email or password.');
       }
 
-      return 'Usuário autenticado com sucesso!';
+      return 'User authenticated successfully!';
     }
 
-    return new Error('Usuário não existe.');
+    return new Error('User does not exist.');
   };
 
   getUsers = (): UserRequest[] => {
