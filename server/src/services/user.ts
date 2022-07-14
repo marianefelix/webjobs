@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { basePath } from '../constants';
 
 type UserRequest = {
   companyName: string;
@@ -7,13 +8,15 @@ type UserRequest = {
   password: string;
 };
 
+interface UserResponse extends UserRequest {
+  id: number;
+}
+
 export class UserService {
-  public basePath = './src/database';
-
   saveUser = (data: UserRequest) => {
-    const users = this.getUsers();
+    const usersList = this.getUsers();
 
-    const alreadyExists = users.some((userItem) => {
+    const alreadyExists = usersList.some((userItem) => {
       const newUserEmailData = data.email.toLocaleLowerCase();
       const newUserEmail = userItem.email.toLocaleLowerCase();
 
@@ -28,9 +31,15 @@ export class UserService {
       return new Error('There is already a user registered with this email.');
     }
 
-    users.push(data);
-    const newUsers = JSON.stringify(users, null, ' ');
-    fs.writeFileSync(`${this.basePath}/users.json`, newUsers, 'utf8');
+    const newUser: UserResponse = {
+      ...data,
+      id: usersList.length + 1,
+    };
+
+    usersList.push(newUser);
+
+    const newUsers = JSON.stringify(usersList, null, ' ');
+    fs.writeFileSync(`${basePath}/users.json`, newUsers, 'utf8');
 
     return 'User registered successfully!';
   };
@@ -66,9 +75,9 @@ export class UserService {
     return new Error('User does not exist.');
   };
 
-  getUsers = (): UserRequest[] => {
+  getUsers = (): UserResponse[] => {
     try {
-      const jsonString = fs.readFileSync(`${this.basePath}/users.json`, 'utf8');
+      const jsonString = fs.readFileSync(`${basePath}/users.json`, 'utf8');
 
       if (jsonString.length === 0) {
         return [];
