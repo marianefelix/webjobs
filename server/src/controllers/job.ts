@@ -14,4 +14,14 @@ export class JobController {
 
     return response.status(200).json(result);
   };
+
+  handleGetJobList = (response: Response) => {
+    const result = this.service.getJobList();
+
+    if (result instanceof Error) {
+      return response.status(400).json(result.message);
+    }
+
+    return response.status(200).json(result);
+  };
 }

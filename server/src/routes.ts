@@ -16,4 +16,8 @@ routes.post('/job/create-job', (request, response) =>
   new JobController().handleSaveJob(request, response)
 );
 
+routes.get('/job/list', (request, response) =>
+  new JobController().handleGetJobList(response)
+);
+
 export { routes };
