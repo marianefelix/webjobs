@@ -45,7 +45,7 @@ export class JobService {
     formattedData.company = companyUser[0].companyName;
     formattedData.logo = companyUser[0].logoUrl;
 
-    jobList.push(formattedData);
+    jobList.push({ ...formattedData, ...data });
 
     const newJobs = JSON.stringify(jobList, null, ' ');
     fs.writeFileSync(`${basePath}/${this.jobListFileName}`, newJobs, 'utf8');
