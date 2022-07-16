@@ -1,4 +1,4 @@
-import { LanguageTypes, LevelTypes, RoleTypes, ToolTypes } from './filters';
+import { LanguageTypes, LevelTypes, RoleTypes, ToolTypes } from 'types';
 
 export interface Job {
   id: number;

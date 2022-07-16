@@ -13,7 +13,7 @@ import {
   toolTypes,
 } from '../../constants';
 
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import {
@@ -24,6 +24,9 @@ import {
   NewJobContainer,
   Title,
 } from './styles';
+import { JobContext, JobRequest } from 'contexts/JobContext';
+import { AuthContext } from 'contexts/AuthContext';
+import { toast } from 'react-toastify';
 
 interface FormType {
   role: string;
@@ -59,6 +62,8 @@ const initialForm: FormType = {
   link: '',
 };
 export const NewJob = () => {
+  const { isRegisterNewJobLoading, registerNewJob } = useContext(JobContext);
+  const { userId } = useContext(AuthContext);
   const [form, setForm] = useState<FormType>(initialForm);
 
   const navigate = useNavigate();
@@ -91,8 +96,12 @@ export const NewJob = () => {
     newValues: Option[],
     key: 'languages' | 'tools'
   ) => {
+    const formattedNewValues = newValues.map((newValueItem) => {
+      return newValueItem.value;
+    });
+
     const updatedValue = {
-      [key]: newValues,
+      [key]: formattedNewValues,
     };
     setForm(
       (prevForm) =>
@@ -103,9 +112,21 @@ export const NewJob = () => {
     );
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(form);
+
+    const formattedData = { ...form } as JobRequest;
+    formattedData.companyId = userId;
+
+    const { success, error } = await registerNewJob(formattedData);
+
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
+
+    toast.success(success);
+
     navigate('/list');
   };
 
@@ -178,7 +199,12 @@ export const NewJob = () => {
               </Checkbox>
             </CheckboxesContainer>
             <ButtonsContainer>
-              <PrimaryButton width="126px" padding="15px 25px" type="submit">
+              <PrimaryButton
+                width="126px"
+                padding="15px 25px"
+                type="submit"
+                isLoading={isRegisterNewJobLoading}
+              >
                 Save
               </PrimaryButton>
               <TextButton onClick={() => navigate(-1)} type="button">

@@ -1,4 +1,4 @@
-import { Filter } from 'models/filters';
+import { Filter } from 'types';
 import { FilterChip } from '../FilterChip';
 import { Box, ClearButton, Item, List } from './styles';
 

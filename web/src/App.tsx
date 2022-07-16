@@ -6,18 +6,21 @@ import { routes } from 'routes';
 import { AuthContextProvider } from 'contexts/AuthContext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import { JobContextProvider } from 'contexts/JobContext';
 
 export const App = () => {
   return (
     <ThemeProvider theme={light}>
       <AuthContextProvider>
-        <GlobalStyle />
-        <ToastContainer />
-        <Routes>
-          {routes.map(({ path, element }) => (
-            <Route path={path} element={element} key={path} />
-          ))}
-        </Routes>
+        <JobContextProvider>
+          <GlobalStyle />
+          <ToastContainer />
+          <Routes>
+            {routes.map(({ path, element }) => (
+              <Route path={path} element={element} key={path} />
+            ))}
+          </Routes>
+        </JobContextProvider>
       </AuthContextProvider>
     </ThemeProvider>
   );

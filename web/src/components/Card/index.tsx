@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Job } from 'models/job';
 import { formatDistanceToNow } from 'date-fns';
-import { Filter } from 'models/filters';
+import { Filter } from 'types';
 import { Tag } from 'components/Tag';
 import { Badge } from 'components/Badge';
 
