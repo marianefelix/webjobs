@@ -5,5 +5,12 @@
   "email": "teste3@gmail.com",
   "password": "teste",
   "id": 1
+ },
+ {
+  "companyName": "",
+  "logoUrl": "",
+  "email": "lorena@gmail.com",
+  "password": "123",
+  "id": 2
  }
 ]

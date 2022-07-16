@@ -12,23 +12,8 @@ import {
 } from './styles';
 import { Tag } from 'components/Tag';
 import { Badge } from 'components/Badge';
-export interface JobType {
-  id: number;
-  company: string;
-  logo: string;
-  new: boolean;
-  featured: boolean;
-  position: string;
-  role: string;
-  level: string;
-  postedAt: string;
-  contract: string;
-  location: string;
-  languages: string[];
-  tools: string[];
-  link: string;
-}
-
+import { Job } from 'models/job';
+import { formatDistanceToNow } from 'date-fns';
 interface TagType {
   title: string;
   selected: boolean;
@@ -38,7 +23,7 @@ interface TagListType {
   [id: string]: TagType;
 }
 
-export const Card = ({ job }: { job: JobType }) => {
+export const Card = ({ job }: { job: Job }) => {
   const [tags, setTags] = useState<TagListType>({});
 
   const generateTags = useCallback(() => {
@@ -77,8 +62,10 @@ export const Card = ({ job }: { job: JobType }) => {
 
           <JobTitle href={job.link}>{job.position}</JobTitle>
           <Flex>
-            <span>{job.postedAt}</span> • <span>{job.contract}</span> •
-            <span>{job.location}</span>
+            <span>
+              {formatDistanceToNow(new Date(job.postedAt), { addSuffix: true })}
+            </span>{' '}
+            • <span>{job.workingTime}</span> •<span>{job.location}</span>
           </Flex>
         </JobDescription>
       </Flex>

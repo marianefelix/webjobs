@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { formatISO } from 'date-fns';
 import { basePath } from '../constants';
 import { UserService } from './user';
 
@@ -20,6 +21,7 @@ interface JobResponse extends JobRequest {
   company: string;
   logo: string;
   position: string;
+  postedAt: string;
 }
 
 export class JobService {
@@ -44,6 +46,7 @@ export class JobService {
     formattedData.position = `${data.role} ${data.level} Developer`;
     formattedData.company = companyUser[0].companyName;
     formattedData.logo = companyUser[0].logoUrl;
+    formattedData.postedAt = formatISO(new Date());
 
     jobList.push({ ...formattedData, ...data });
 
