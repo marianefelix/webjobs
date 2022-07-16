@@ -25,7 +25,11 @@ Projeto desenvolvido para a disciplina de Desenvolvimento Web I do BTI. Consiste
 
 ## Tecnologias utilizadas
 
-Este projeto foi desenvolvido utilizando as seguintes tecnologias:
+Este projeto foi desenvolvido utilizando as seguintes ferramentas e tecnologias:
+
+### 🎨 Protótipos e ilustrações
+- [Figma](https://figma.com/)
+- [Storyset](https://storyset.com/cuate)
 
 ### 💻 Web
 
