@@ -69,7 +69,10 @@ export class UserService {
         return new Error('Invalid email or password.');
       }
 
-      return 'User authenticated successfully!';
+      return {
+        userId: filteredUser[0].id,
+        message: 'User authenticated successfully!',
+      };
     }
 
     return new Error('User does not exist.');
