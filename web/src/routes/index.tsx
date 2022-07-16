@@ -6,6 +6,7 @@ import { UserRegistration } from 'pages/UserRegistration';
 
 interface RoutesType {
   path: string;
+  isPrivate?: boolean;
   element: JSX.Element;
 }
 
@@ -22,7 +23,7 @@ export const routes: RoutesType[] = [
     path: 'login',
     element: <Login />,
   },
-  { path: 'new-job', element: <NewJob /> },
+  { path: 'new-job', isPrivate: true, element: <NewJob /> },
   {
     path: 'user-registration',
     element: <UserRegistration />,
