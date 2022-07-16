@@ -1,12 +1,18 @@
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import { ThemeProvider } from 'styled-components';
+
 import { GlobalStyle } from './styles/global';
 import { light } from './styles/theme';
+
 import { routes } from 'routes';
+
+import { PrivateRoute } from 'routes/PrivateRoute';
+
 import { AuthContextProvider } from 'contexts/AuthContext';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
 import { JobContextProvider } from 'contexts/JobContext';
+
+import 'react-toastify/dist/ReactToastify.min.css';
 
 export const App = () => {
   return (
@@ -16,9 +22,15 @@ export const App = () => {
           <GlobalStyle />
           <ToastContainer />
           <Routes>
-            {routes.map(({ path, element }) => (
-              <Route path={path} element={element} key={path} />
-            ))}
+            {routes.map(({ path, isPrivate, element }) => {
+              if (isPrivate) {
+                return (
+                  <Route path={path} element={<PrivateRoute />} key={path} />
+                );
+              }
+
+              return <Route path={path} element={element} key={path} />;
+            })}
           </Routes>
         </JobContextProvider>
       </AuthContextProvider>
