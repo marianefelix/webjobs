@@ -1,21 +1,29 @@
+import { Filter } from 'models/filters';
 import { FilterChip } from '../FilterChip';
 import { Box, ClearButton, Item, List } from './styles';
 
-export const FilterBox = () => {
+interface FilterBoxProps {
+  filters: Filter[];
+  onChange: (newFilters: Filter[]) => void;
+}
+
+export const FilterBox = ({ filters, onChange }: FilterBoxProps) => {
   return (
     <Box>
       <List>
-        <Item>
-          <FilterChip>Frontend</FilterChip>
-        </Item>
-        <Item>
-          <FilterChip>Fullstack</FilterChip>
-        </Item>
-        <Item>
-          <FilterChip>Javascript</FilterChip>
-        </Item>
+        {filters.map((filter) => (
+          <Item key={filter}>
+            <FilterChip
+              onDelete={() =>
+                onChange(filters.filter((item) => item !== filter))
+              }
+            >
+              {filter}
+            </FilterChip>
+          </Item>
+        ))}
       </List>
-      <ClearButton type="reset" onClick={() => {}}>
+      <ClearButton type="reset" onClick={() => onChange([])}>
         Clear
       </ClearButton>
     </Box>

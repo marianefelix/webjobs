@@ -1,4 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
+import { Job } from 'models/job';
+import { formatDistanceToNow } from 'date-fns';
+import { Filter } from 'models/filters';
+import { Tag } from 'components/Tag';
+import { Badge } from 'components/Badge';
+
 import {
   CardContainer,
   JobTitle,
@@ -10,12 +16,9 @@ import {
   Flex,
   Divider,
 } from './styles';
-import { Tag } from 'components/Tag';
-import { Badge } from 'components/Badge';
-import { Job } from 'models/job';
-import { formatDistanceToNow } from 'date-fns';
+
 interface TagType {
-  title: string;
+  title: Filter;
   selected: boolean;
 }
 
@@ -23,7 +26,13 @@ interface TagListType {
   [id: string]: TagType;
 }
 
-export const Card = ({ job }: { job: Job }) => {
+interface CardProps {
+  job: Job;
+  selectedTags: Filter[];
+  onChangeTagSelect: (tag: Filter) => void;
+}
+
+export const Card = ({ job, onChangeTagSelect, selectedTags }: CardProps) => {
   const [tags, setTags] = useState<TagListType>({});
 
   const generateTags = useCallback(() => {
@@ -43,11 +52,18 @@ export const Card = ({ job }: { job: Job }) => {
     const newTags = { ...tags };
     newTags[id].selected = !newTags[id].selected;
     setTags(newTags);
+    onChangeTagSelect(newTags[id].title);
   };
 
   useEffect(() => {
-    setTags(generateTags());
-  }, [generateTags]);
+    const updatedTags = generateTags();
+
+    Object.values(updatedTags).forEach((tag) => {
+      tag.selected = selectedTags.includes(tag.title);
+    });
+
+    setTags(updatedTags);
+  }, [selectedTags, generateTags]);
 
   return (
     <CardContainer tabIndex={0}>
