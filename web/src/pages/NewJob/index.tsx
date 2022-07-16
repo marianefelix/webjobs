@@ -6,6 +6,13 @@ import { Header } from 'components/Header';
 import { Input } from 'components/Input';
 import { Panel } from 'components/Panel';
 import { Option, Select } from 'components/Select';
+import {
+  languageTypes,
+  levelTypes,
+  roleTypes,
+  toolTypes,
+} from '../../constants';
+
 import { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -30,35 +37,15 @@ interface FormType {
   link: string;
 }
 
-const roleOptions = [
-  { value: 'Fullstack' },
-  { value: 'Frontend' },
-  { value: 'Backend' },
-];
+const roleOptions = roleTypes.map((role) => ({ value: role }));
 
-const levelOptions = [
-  { value: 'Junior' },
-  { value: 'Midweight' },
-  { value: 'Senior' },
-];
+const levelOptions = levelTypes.map((level) => ({ value: level }));
 
-const languagesOptions = [
-  { value: 'HTML' },
-  { value: 'CSS' },
-  { value: 'JavaScript' },
-  { value: 'Python' },
-  { value: 'Java' },
-  { value: 'Ruby' },
-];
+const languagesOptions = languageTypes.map((language) => ({
+  value: language,
+}));
 
-const toolsOptions = [
-  { value: 'Angular' },
-  { value: 'Django' },
-  { value: 'Sass' },
-  { value: 'React' },
-  { value: 'RoR' },
-  { value: 'Vue' },
-];
+const toolsOptions = toolTypes.map((tool) => ({ value: tool }));
 
 const initialForm: FormType = {
   role: '',

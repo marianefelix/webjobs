@@ -8,6 +8,7 @@ export const Box = styled.div`
   position: relative;
 
   padding: 15px 35px;
+  min-height: 61.2px;
 
   background-color: ${({ theme }) => theme.color.lightCard};
   box-shadow: ${({ theme }) => theme.boxShadow};

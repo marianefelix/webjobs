@@ -1,3 +1,5 @@
+import { LanguageTypes, LevelTypes, RoleTypes, ToolTypes } from './filters';
+
 export interface Job {
   id: number;
   company: string;
@@ -6,12 +8,12 @@ export interface Job {
   new: boolean;
   featured: boolean;
   position: string;
-  role: string;
-  level: string;
+  role: RoleTypes;
+  level: LevelTypes;
   postedAt: string;
   workingTime: string;
   location: string;
-  languages: string[];
-  tools: string[];
+  languages: LanguageTypes[];
+  tools: ToolTypes[];
   link: string;
 }
