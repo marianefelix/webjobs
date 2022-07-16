@@ -3,6 +3,7 @@ import { User, UserCredentials } from 'models/user';
 import { createContext, ReactNode, useState } from 'react';
 
 interface AuthContextType {
+  userId: number;
   hasUser: boolean;
   isRegisterUserLoading: boolean;
   isAuthenticateUserLoading: boolean;
@@ -14,10 +15,16 @@ interface AuthContextProviderProps {
   children: ReactNode;
 }
 
+export interface AuthUserResponseType {
+  userId: number;
+  message: string;
+}
+
 export const AuthContext = createContext({} as AuthContextType);
 
 export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   const { runRequest } = useRequest();
+  const [userId, setUserId] = useState(0);
   const [hasUser, setHasUser] = useState(false);
   const [isRegisterUserLoading, setIsRegisterUserLoading] = useState(false);
   const [isAuthenticateUserLoading, setIsAuthenticateUserLoading] =
@@ -28,7 +35,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 
     const customErrorMessage = 'Error authenticating user, please try again.';
 
-    const response = await runRequest<string, UserCredentials>(
+    const response = await runRequest<AuthUserResponseType, UserCredentials>(
       '/user/login',
       'post',
       undefined,
@@ -40,6 +47,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 
     if (response instanceof Error) {
       setHasUser(false);
+      setUserId(0);
 
       return {
         success: undefined,
@@ -48,8 +56,9 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     }
 
     setHasUser(true);
+    setUserId(response.userId);
 
-    return { success: response, error: undefined };
+    return { success: response.message, error: undefined };
   };
 
   const registerUser = async (data: User) => {
@@ -80,6 +89,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   return (
     <AuthContext.Provider
       value={{
+        userId,
         hasUser,
         registerUser,
         authenticateUser,
