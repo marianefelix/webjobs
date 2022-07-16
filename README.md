@@ -19,9 +19,9 @@ Projeto desenvolvido para a disciplina de Desenvolvimento Web I do BTI. Consiste
 
 ### Features
 
-- Listagem de vagas - Em construção 🚧
-- Cadastro e login de empresas - Em breve 📅
-- Cadastro de vaga - Em breve 📅
+- Listagem de vagas
+- Cadastro e login de empresas
+- Cadastro de vaga
 
 ## Tecnologias utilizadas
 
@@ -32,6 +32,10 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 - [ReactJS](https://reactjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
 - [Styled Components](https://styled-components.com/)
+- [React Select](https://react-select.com/home)
+- [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
+- [Date Fns](https://date-fns.org/)
+- [Axios](https://axios-http.com/ptbr/docs/intro)
 
 ### 📦 API
 
@@ -70,7 +74,7 @@ $ cd server
 # Instale as dependências
 $ yarn
 # Execute a aplicação
-$ yarn start
+$ yarn dev
 ```
 
 O servidor estará rodando no endereço: http://localhost:3333/.
