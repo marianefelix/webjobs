@@ -1,21 +1,17 @@
-import { PrimaryButton } from 'components/Button/Primary';
-import { TextButton } from 'components/Button/Text';
-import { Checkbox } from 'components/Checkbox';
-import { Footer } from 'components/Footer';
-import { Header } from 'components/Header';
-import { Input } from 'components/Input';
-import { Panel } from 'components/Panel';
-import { Option, Select } from 'components/Select';
-import {
-  languageTypes,
-  levelTypes,
-  roleTypes,
-  toolTypes,
-} from '../../constants';
-
-import { useState, FormEvent, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-
+import {useState, FormEvent, useContext} from 'react';
+import {useNavigate} from 'react-router-dom';
+import {toast} from 'react-toastify';
+import {JobContext, JobRequest} from 'contexts/JobContext';
+import {AuthContext} from 'contexts/AuthContext';
+import {PrimaryButton} from 'components/Button/Primary';
+import {TextButton} from 'components/Button/Text';
+import {Checkbox} from 'components/Checkbox';
+import {Footer} from 'components/Footer';
+import {Header} from 'components/Header';
+import {Input} from 'components/Input';
+import {Panel} from 'components/Panel';
+import {Option, Select} from 'components/Select';
+import {languageTypes, levelTypes, roleTypes, toolTypes} from '../../constants';
 import {
   ButtonsContainer,
   CheckboxesContainer,
@@ -24,9 +20,6 @@ import {
   NewJobContainer,
   Title,
 } from './styles';
-import { JobContext, JobRequest } from 'contexts/JobContext';
-import { AuthContext } from 'contexts/AuthContext';
-import { toast } from 'react-toastify';
 
 interface FormType {
   role: string;
@@ -40,15 +33,15 @@ interface FormType {
   link: string;
 }
 
-const roleOptions = roleTypes.map((role) => ({ value: role }));
+const roleOptions = roleTypes.map((role) => ({value: role}));
 
-const levelOptions = levelTypes.map((level) => ({ value: level }));
+const levelOptions = levelTypes.map((level) => ({value: level}));
 
 const languagesOptions = languageTypes.map((language) => ({
   value: language,
 }));
 
-const toolsOptions = toolTypes.map((tool) => ({ value: tool }));
+const toolsOptions = toolTypes.map((tool) => ({value: tool}));
 
 const initialForm: FormType = {
   role: '',
@@ -62,8 +55,8 @@ const initialForm: FormType = {
   link: '',
 };
 export const NewJob = () => {
-  const { isRegisterNewJobLoading, registerNewJob } = useContext(JobContext);
-  const { userId } = useContext(AuthContext);
+  const {isRegisterNewJobLoading, registerNewJob} = useContext(JobContext);
+  const {userId} = useContext(AuthContext);
   const [form, setForm] = useState<FormType>(initialForm);
 
   const navigate = useNavigate();
@@ -115,10 +108,10 @@ export const NewJob = () => {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const formattedData = { ...form } as JobRequest;
+    const formattedData = {...form} as JobRequest;
     formattedData.companyId = userId;
 
-    const { success, error } = await registerNewJob(formattedData);
+    const {success, error} = await registerNewJob(formattedData);
 
     if (error) {
       toast.error(error.message);
