@@ -1,22 +1,22 @@
-import {useCallback, useContext, useEffect, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
-import {AuthContext} from 'contexts/AuthContext';
-import {Job} from 'models/job';
-import {toast} from 'react-toastify';
-import {Filter} from 'types';
+import { useCallback, useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from 'contexts/AuthContext';
+import { Job } from 'models/job';
+import { toast } from 'react-toastify';
+import { Filter } from 'types';
 
-import {Card} from 'components/Card';
-import {FilterBox} from 'components/FilterBox';
-import {Header} from 'components/Header';
-import {AddJobButton} from 'components/Button/AddJob';
+import { Card } from 'components/Card';
+import { FilterBox } from 'components/FilterBox';
+import { Header } from 'components/Header';
+import { AddJobButton } from 'components/Button/AddJob';
 
-import {AbsoluteBox, Main} from './styles';
-import {JobContext} from 'contexts/JobContext';
-import {EmptyState} from 'pages/EmptyState';
+import { AbsoluteBox, Main } from './styles';
+import { JobContext } from 'contexts/JobContext';
+import { EmptyState } from 'pages/EmptyState';
 
 export const JobList = () => {
-  const {getJobs, isGetJobsLoading} = useContext(JobContext);
-  const {hasUser} = useContext(AuthContext);
+  const { getJobs, isGetJobsLoading } = useContext(JobContext);
+  const { hasUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [jobs, setJobs] = useState<Job[]>();
@@ -57,7 +57,7 @@ export const JobList = () => {
   );
 
   const handleGetJobs = async () => {
-    const {success: response, error} = await getJobs();
+    const { success: response, error } = await getJobs();
 
     if (error) {
       toast.error(error.message);
