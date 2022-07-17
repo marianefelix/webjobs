@@ -76,7 +76,9 @@ export const Card = ({ job, onChangeTagSelect, selectedTags }: CardProps) => {
             {job.featured && <Badge type="featured" />}
           </Flex>
 
-          <JobTitle href={job.link}>{job.position}</JobTitle>
+          <JobTitle href={job.link} target="_blank">
+            {job.position}
+          </JobTitle>
           <Flex>
             <span>
               {formatDistanceToNow(new Date(job.postedAt), { addSuffix: true })}
