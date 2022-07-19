@@ -25,7 +25,11 @@ export const App = () => {
             {routes.map(({ path, isPrivate, element }) => {
               if (isPrivate) {
                 return (
-                  <Route path={path} element={<PrivateRoute />} key={path} />
+                  <Route
+                    path={path}
+                    element={<PrivateRoute element={element} />}
+                    key={path}
+                  />
                 );
               }
 
