@@ -54,6 +54,10 @@ export const CardContainer = styled.div`
 `;
 
 export const CompanyImage = styled.img`
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+
   ${({ theme }) => theme.device.mobile()} {
     position: absolute;
     width: 48px;
