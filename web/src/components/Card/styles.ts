@@ -61,6 +61,7 @@ export const CompanyImage = styled.img`
   ${({ theme }) => theme.device.mobile()} {
     position: absolute;
     width: 48px;
+    height: 48px;
     top: -24px;
   }
 `;
