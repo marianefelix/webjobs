@@ -10,9 +10,12 @@ const corsOptions = {
   methods: 'GET, POST',
 };
 
+const port = process.env.PORT || 3333;
+
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 app.use(routes);
 
-app.listen(3333, () => console.log('Server is running'));
+app.listen(port, () => console.log('Server is running'));
