@@ -4,15 +4,9 @@ import { routes } from './routes';
 
 const app = express();
 
-const corsOptions = {
-  origin: 'http://localhost:3000',
-  optionsSuccessStatus: 200,
-  methods: 'GET, POST',
-};
+const port = process.env.PORT || 80;
 
-const port = process.env.PORT || 3333;
-
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
