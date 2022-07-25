@@ -151,22 +151,5 @@
     "languages": ["JavaScript"],
     "tools": ["React", "Sass"],
     "link": ""
-  },
-  {
-    "id": 10,
-    "position": "Fullstack Senior Developer",
-    "company": "VTEX",
-    "logo": "data:image/png;base64,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",
-    "postedAt": "2022-07-19T13:19:31-03:00",
-    "role": "Fullstack",
-    "level": "Senior",
-    "workingTime": "Full time",
-    "location": "Brazil",
-    "languages": ["HTML", "JavaScript", "Python"],
-    "tools": ["Django", "React"],
-    "new": true,
-    "featured": false,
-    "link": "https://careers.vtex.com/postings/senior-software-engineer-developer-journey-brazil",
-    "companyId": 1
   }
 ]
